@@ -10,11 +10,13 @@ Download or clone the repository and use minified file in dist directory
 
 ### CDN
 
-Soon to be updated
+```
+<script sr="https://raw.githubusercontent.com/ms10398/utopian.js/master/dist/utopian.min.js"></script>
+```
 
 ## Examples
 
-Examples can be found in Examples/index.html
+Examples can be found [here](examples/index.html)
 
 ## How to Contribute?
 
