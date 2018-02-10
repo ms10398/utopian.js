@@ -1,6 +1,6 @@
 # utopian.js
 
-Utopian JS is a library of functions which can be used easily with client side scripts.
+Utopian JS is a library of functions which can be used easily with client side scripts to get details from Utopian API.
 
 ## Dependency
 
