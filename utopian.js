@@ -3,7 +3,7 @@ let utopian = {};
 const API_HOST = 'https://api.utopian.io/api'
 const ENDPOINT_MODERATORS = API_HOST + '/moderators'
 const ENDPOINT_SPONSORS = API_HOST + '/sponsors'
-const ENDPOINT_POSTS = API_HOST + '/posts'
+let ENDPOINT_POSTS = API_HOST + '/posts'
 const ENDPOINT_STATS = API_HOST + '/stats'
 
 
@@ -80,4 +80,33 @@ utopian.getSponsor = (username) => {
   })
 }
 
+utopian.getPosts = (options={}) => {
 
+  if (options.limit > 20 || options.limit < 1) {
+    options.limit = 20
+  }
+
+  if (Object.keys(options).length === 0) {
+    options.limit = 20
+    options.skip = 0
+  }
+  ENDPOINT_POSTS+= '?';
+  for(let x in options)
+  {
+  	ENDPOINT_POSTS = `${ENDPOINT_POSTS}` + `${x}=${options[x]}&`
+  }
+  ENDPOINT_POSTS = ENDPOINT_POSTS.slice(0,-1)
+  return new Promise((resolve, reject) => {
+	$.ajax(
+		{
+			url: ENDPOINT_POSTS,
+			success: function(result) {
+		        console.log(result)
+		        resolve(result);
+		    },
+		    error: function(xhr, status, error) {
+		    	reject(error)
+		    }
+		})
+	})
+}
