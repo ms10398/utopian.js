@@ -39,6 +39,23 @@ utopian.getSponsors = () => {
 	})
 }
 
+
+utopian.getStats = () => {
+	return new Promise((resolve, reject) => {
+		$.ajax(
+		{
+			url: ENDPOINT_STATS,
+			success: function(result) {
+		        console.log(result)
+		        resolve(result);
+		    },
+		    error: function(xhr, status, error) {
+		    	reject(error)
+		    }
+		})
+	})
+}
+
 utopian.getModerator = (username) => {
 	return new Promise((resolve, reject) => {
 		utopian.getModerators().then((moderators) => {
