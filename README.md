@@ -2,6 +2,10 @@
 
 Utopian JS is a library of functions which can be used easily with client side scripts.
 
+## Dependency
+
+- jQuery
+
 ## How to use?
 
 ### Downloading and using minified file
