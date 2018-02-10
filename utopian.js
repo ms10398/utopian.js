@@ -1,4 +1,4 @@
-let utopian = {};
+let utopian = {}
 
 const API_HOST = 'https://api.utopian.io/api'
 const ENDPOINT_MODERATORS = API_HOST + '/moderators'
@@ -13,7 +13,6 @@ utopian.getModerators = () => {
 		{
 			url: ENDPOINT_MODERATORS,
 			success: function(result) {
-		        console.log(result)
 		        resolve(result);
 		    },
 		    error: function(xhr, status, error) {
@@ -29,7 +28,6 @@ utopian.getSponsors = () => {
 		{
 			url: ENDPOINT_SPONSORS,
 			success: function(result) {
-		        console.log(result)
 		        resolve(result);
 		    },
 		    error: function(xhr, status, error) {
@@ -46,7 +44,6 @@ utopian.getStats = () => {
 		{
 			url: ENDPOINT_STATS,
 			success: function(result) {
-		        console.log(result)
 		        resolve(result);
 		    },
 		    error: function(xhr, status, error) {
@@ -101,7 +98,6 @@ utopian.getPosts = (options={}) => {
 		{
 			url: ENDPOINT_POSTS,
 			success: function(result) {
-		        console.log(result)
 		        resolve(result);
 		    },
 		    error: function(xhr, status, error) {
@@ -110,3 +106,20 @@ utopian.getPosts = (options={}) => {
 		})
 	})
 }
+
+utopian.getTotalPostCount = () => {
+  ENDPOINT_POSTS = `${ENDPOINT_POSTS}?limit=1&skip=0` 
+  return new Promise((resolve, reject) => {
+    $.ajax(
+		{
+			url: ENDPOINT_POSTS,
+			success: function(result) {
+		        resolve(result.total);
+		    },
+		    error: function(xhr, status, error) {
+		    	reject(error)
+		    }
+		})
+	})
+}
+

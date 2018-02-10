@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+<head>
+
+
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../dist/utopian.min.js"></script>
+<script>
+utopian.getModerators()
+.then((moderators) => console.log(moderators))
+utopian.getSponsors()
+.then((sponsors) => console.log(sponsors))
+utopian.getStats()
+.then((stats) => console.log(stats))
+utopian.getModerator('ms10398')
+.then((moderator) => console.log(moderator))
+utopian.getSponsor('yabapmatt')
+.then((sponsor) => console.log(sponsor))
+utopian.getPosts()
+.then((posts) => console.log(posts))
+utopian.getTotalPostCount()
+.then((count) => console.log(count))
+</script>
+</body>
+</html>
+
