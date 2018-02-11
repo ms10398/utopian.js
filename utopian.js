@@ -153,3 +153,36 @@ utopian.getPostURL = (postID) => {
 	})
 }
 
+utopian.getPostsByAuthor = (username, options={}) => {
+
+  if (options.limit > 20 || options.limit < 1) {
+    options.limit = 20
+  }
+
+  if (Object.keys(options).length === 0) {
+    options.limit = 20
+    options.skip = 0
+  }
+  options.section = 'author'
+  options.author = username
+  ENDPOINT_POSTS+= '?';
+  for(let x in options)
+  {
+  	ENDPOINT_POSTS = `${ENDPOINT_POSTS}` + `${x}=${options[x]}&`
+  }
+  ENDPOINT_POSTS = ENDPOINT_POSTS.slice(0,-1)
+  return new Promise((resolve, reject) => {
+	$.ajax(
+		{
+			url: ENDPOINT_POSTS,
+			success: function(result) {
+		        resolve(result);
+		    },
+		    error: function(xhr, status, error) {
+		    	reject(error)
+		    }
+		})
+	})
+}
+
+
