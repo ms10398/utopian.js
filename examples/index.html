@@ -9,7 +9,7 @@
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="../utopian.js"></script>
 <script>
-/*utopian.getModerators()
+utopian.getModerators()
 .then((moderators) => console.log(moderators))
 utopian.getSponsors()
 .then((sponsors) => console.log(sponsors))
@@ -27,10 +27,10 @@ utopian.getPost('ms10398','utopian-js-client-side-import-script-for-utopian-api'
 .then((post) => console.log(post))
 utopian.getPostURL(31401675)
 .then((post) => console.log(post))
-*/
 utopian.getPostsByAuthor('ms10398')
 .then((posts) => console.log(posts))
-
+utopian.getPostsByGithubProject('utopian-io/npm')
+.then((posts) => console.log(posts))
 </script>
 </body>
 </html>
